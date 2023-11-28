@@ -1,4 +1,5 @@
 use phf::phf_map;
+use std::io::{self, BufRead};
 
 static DVORAK_SCORES_HOME_ROW_UPPER: phf::Map<char, i32> = phf_map! {
     // Top row scores: 0 for each character
@@ -23,8 +24,25 @@ static DVORAK_SCORES_HOME_ROW_LOWER: phf::Map<char, i32> = phf_map! {
 };
 
 fn main() {
-    // Test the map
-    println!("{:?}", DVORAK_SCORES_HOME_ROW_UPPER);
-    // Test the map
-    println!("{:?}", DVORAK_SCORES_HOME_ROW_LOWER);
+    let mut i = 0;
+    let stdin = io::stdin();
+    for line in stdin.lock().lines() {
+        if let Ok(l) = line {
+            if l.trim().is_empty() {
+                match i {
+                    0 => {
+                        println!("{:?}", DVORAK_SCORES_HOME_ROW_UPPER);
+                        println!("{:?}", DVORAK_SCORES_HOME_ROW_LOWER);
+                    }
+                    1 => todo!(),
+                    2 => todo!(),
+                    3 => todo!(),
+                    _ => unreachable!("How could this happen to you??"),
+                }
+                i = (i + 1) % 4;
+            } else {
+                // calculate score
+            }
+        }
+    }
 }
