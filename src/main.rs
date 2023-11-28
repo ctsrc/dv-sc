@@ -23,6 +23,22 @@ static DVORAK_SCORES_HOME_ROW_LOWER: phf::Map<char, i32> = phf_map! {
     'q' => 0, 'j' => 0, 'k' => 0, 'x' => 0, 'b' => 0, 'm' => 0, 'w' => 0, 'v' => 0, 'z' => 0, ':' => 0, '-' => 0,
 };
 
+static DVORAK_SCORES_TOP_ROW_UPPER: phf::Map<char, i32> = phf_map! {
+    '\'' => -6, '\"' => -5, ',' => -1, '.' => -2, 'P' => -2, 'Y' => -2, 'F' => -2, 'G' => -1, 'C' => -5, 'R' => -6,
+
+    'A' => 0, 'O' => 0, 'E' => 0, 'U' => 0, 'I' => 0, 'D' => 0, 'H' => 0, 'T' => 0, 'N' => 0, 'S' => 0,
+
+    ';' => 0, 'Q' => 0, 'J' => 0, 'K' => 0, 'X' => 0, 'B' => 0, 'M' => 0, 'W' => 0, 'V' => 0, 'Z' => 0,
+};
+
+static DVORAK_SCORES_TOP_ROW_LOWER: phf::Map<char, i32> = phf_map! {
+    '\'' => -6, '\"' => -5, ',' => -1, '.' => -2, 'p' => -2, 'y' => -2, 'f' => -2, 'g' => -1, 'c' => -5, 'r' => -6,
+
+    'a' => 0, 'o' => 0, 'e' => 0, 'u' => 0, 'i' => 0, 'd' => 0, 'h' => 0, 't' => 0, 'n' => 0, 's' => 0,
+
+    ';' => 0, 'q' => 0, 'j' => 0, 'k' => 0, 'x' => 0, 'b' => 0, 'm' => 0, 'w' => 0, 'v' => 0, 'z' => 0,
+};
+
 fn main() {
     let mut i = 0;
     let stdin = io::stdin();
@@ -34,7 +50,10 @@ fn main() {
                         println!("{:?}", DVORAK_SCORES_HOME_ROW_UPPER);
                         println!("{:?}", DVORAK_SCORES_HOME_ROW_LOWER);
                     }
-                    1 => todo!(),
+                    1 => {
+                        println!("{:?}", DVORAK_SCORES_TOP_ROW_UPPER);
+                        println!("{:?}", DVORAK_SCORES_TOP_ROW_LOWER);
+                    }
                     2 => todo!(),
                     3 => todo!(),
                     _ => unreachable!("How could this happen to you??"),
