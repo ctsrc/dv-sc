@@ -1,4 +1,4 @@
-# dvorak-score
+# dv-sc
 
 You: What does the following output represent, from a command line program written in Rust 
 
